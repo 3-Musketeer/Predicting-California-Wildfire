@@ -152,11 +152,11 @@ def exploratory_analysis():
 
 def predict_wildfire():
 
-    with open('./data/rf.pkl', 'rb') as file:
+    with open('./streamlitdata/rf.pkl', 'rb') as file:
         print(file)
         model = pickle.load(file)
     
-    with open('./data/sc.pkl', 'rb') as file:
+    with open('./streamlitdata/sc.pkl', 'rb') as file:
         print(file)
         sc = pickle.load(file)
 
@@ -201,7 +201,7 @@ def predict_wildfire():
     #scaler = StandardScaler()
     #X_test = scaler.fit_transform(X_test)
     X_test = sc.transform(X_test)
-    if st.button('add'):
+    if st.button('Detect Chance of Wildfire'):
         y_predict = model.predict(X_test)
         st.text(y_predict)
         st.text(X_test)
