@@ -26,15 +26,15 @@ def load_data(nrows, source):
     return pd.read_csv(source, nrows=nrows)
 
 
-option = st.sidebar.selectbox(
-    'Options',
-    [
-        'Wildfire Overview',
-        'Exploratory Data Analysis',
-        'Predict Wildfire'
-    ])
+# option = st.sidebar.selectbox(
+#     'Options',
+#     [
+#         'Wildfire Overview',
+#         'Exploratory Data Analysis',
+#         'Predict Wildfire'
+#     ])
 
-'You selected:', option
+# 'You selected:', option
 
 
 def introduction_func():
@@ -204,9 +204,12 @@ def predict_wildfire():
     if st.button('Detect Chance of Wildfire'):
         y_predict = model.predict(X_test)
         st.text(y_predict)
-        st.text(X_test)
+        if y_predict:
+            st.error('THERE IS A CHANCE OF WILDFIRE OCCURANCE')
+        else:
+            st.success('THERE WILL BE NO WILDFIRE')
 
-
+option='Predict Wildfire'
 # Various views that should be shown based on the option
 if option == 'Wildfire Overview':
     introduction_func()
