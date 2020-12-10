@@ -95,11 +95,5 @@ def predict_wildfire():
 
 option='Predict Wildfire'
 # Various views that should be shown based on the option
-if option == 'Wildfire Overview':
-    introduction_func()
-
-if option == 'Exploratory Data Analysis':
-    exploratory_analysis()
-
 if option == 'Predict Wildfire':
     predict_wildfire()
